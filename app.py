@@ -3,19 +3,19 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.errorhandler(404)
-def FUN_404(error):
-    return render_template("page_404.html"), 404
-
-
 @app.route("/")
-def FUN_root():
+def home():
     return render_template("index.html")
 
 
 @app.route("/about/")
-def FUN_public():
+def about():
     return render_template("about_page.html")
+
+
+@app.errorhandler(404)
+def error(error):
+    return render_template("page_404.html"), 404
 
 
 if __name__ == "__main__":
